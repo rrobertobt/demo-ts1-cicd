@@ -29,7 +29,7 @@ app.get("/api/wishes/random", async (req, res) => {
       "SELECT id, text, author, created_at FROM wishes ORDER BY RANDOM() LIMIT 1"
     );
     if (result.rows.length === 0) {
-      return res.status(404).json({ error: "No wishes yet" });
+      return res.status(404).json({ error: "No wishes saved yet" });
     }
     res.json(result.rows[0]);
   } catch (err) {
