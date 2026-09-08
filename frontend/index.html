@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wishboard — suelta un deseo</title>
+  <link rel="icon" href="data:," />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="sky" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <span class="wordmark">✷ wishboard</span>
+    <button id="random-btn" class="btn btn-ghost" type="button">
+      Deseo al azar
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Suelta un deseo<br />en la noche.</h1>
+      <p class="hero-sub">
+        Escríbelo, déjalo ir, y se sumará a los demás deseos del tablero.
+      </p>
+
+      <form id="wish-form" class="wish-form" novalidate>
+        <label class="field">
+          <span class="field-label">Tu deseo</span>
+          <textarea
+            id="wish-text"
+            name="text"
+            rows="3"
+            maxlength="280"
+            placeholder="Ojalá..."
+            required
+          ></textarea>
+        </label>
+        <div class="field-row">
+          <label class="field">
+            <span class="field-label">Tu nombre (opcional)</span>
+            <input
+              id="wish-author"
+              name="author"
+              type="text"
+              maxlength="60"
+              placeholder="Anónimo"
+            />
+          </label>
+          <button type="submit" class="btn btn-primary">Soltar deseo</button>
+        </div>
+        <p id="form-error" class="form-error" role="alert" hidden></p>
+      </form>
+    </section>
+
+    <section class="board" aria-live="polite">
+      <div class="board-header">
+        <h2>Deseos del tablero</h2>
+        <span id="wish-count" class="wish-count"></span>
+      </div>
+      <div id="wishes" class="wishes-grid"></div>
+      <p id="empty-state" class="empty-state" hidden>
+        El tablero está vacío. Sé el primero en dejar un deseo.
+      </p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

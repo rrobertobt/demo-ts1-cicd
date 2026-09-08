@@ -1,0 +1,334 @@
+:root {
+  --twilight: #14112b;
+  --dusk: #1e1a3e;
+  --dusk-soft: #251f4a;
+  --ember: #f4b740;
+  --lilac: #c9b6f2;
+  --parchment: #f3efe6;
+  --muted: #8b84ac;
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--twilight);
+  color: var(--parchment);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.sky {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(1.5px 1.5px at 12% 18%, rgba(243, 239, 230, 0.6), transparent),
+    radial-gradient(1.5px 1.5px at 78% 32%, rgba(243, 239, 230, 0.5), transparent),
+    radial-gradient(1px 1px at 45% 8%, rgba(243, 239, 230, 0.5), transparent),
+    radial-gradient(1.5px 1.5px at 88% 72%, rgba(243, 239, 230, 0.4), transparent),
+    radial-gradient(1px 1px at 25% 62%, rgba(243, 239, 230, 0.4), transparent),
+    radial-gradient(1px 1px at 60% 85%, rgba(243, 239, 230, 0.35), transparent),
+    radial-gradient(ellipse at top, #1c1840 0%, var(--twilight) 60%);
+  background-repeat: no-repeat;
+}
+
+a,
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ember);
+  outline-offset: 3px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem clamp(1.25rem, 4vw, 3rem);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+  background: rgba(20, 17, 43, 0.75);
+  border-bottom: 1px solid rgba(201, 182, 242, 0.12);
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--parchment);
+}
+
+.btn {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 999px;
+  padding: 0.65rem 1.3rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: var(--ember);
+  color: #241a04;
+}
+
+.btn-primary:hover {
+  background: #f8c66a;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--lilac);
+  border-color: rgba(201, 182, 242, 0.4);
+}
+
+.btn-ghost:hover {
+  border-color: var(--lilac);
+  background: rgba(201, 182, 242, 0.08);
+}
+
+main {
+  max-width: 78rem;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 3rem) 5rem;
+}
+
+.hero {
+  padding: clamp(2.5rem, 6vw, 5rem) 0 3rem;
+  max-width: 42rem;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.08;
+  margin: 0 0 1rem;
+}
+
+.hero-sub {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin: 0 0 2.25rem;
+  max-width: 32rem;
+}
+
+.wish-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: var(--dusk);
+  border: 1px solid rgba(201, 182, 242, 0.14);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.field-label {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+textarea,
+input[type="text"] {
+  background: var(--twilight);
+  border: 1px solid rgba(201, 182, 242, 0.18);
+  border-radius: 0.6rem;
+  color: var(--parchment);
+  padding: 0.7rem 0.85rem;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 3rem;
+}
+
+textarea::placeholder,
+input::placeholder {
+  color: #5c5580;
+}
+
+textarea:focus,
+input:focus {
+  border-color: var(--ember);
+}
+
+.field-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.field-row .field {
+  max-width: 16rem;
+}
+
+.field-row .btn-primary {
+  white-space: nowrap;
+}
+
+.form-error {
+  margin: 0;
+  color: #f28b6b;
+  font-size: 0.85rem;
+}
+
+.board {
+  margin-top: 1rem;
+}
+
+.board-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.board-header h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.wish-count {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.wishes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr));
+  gap: 2rem 1.5rem;
+}
+
+.wish-card {
+  position: relative;
+  background: var(--dusk-soft);
+  border: 1px solid rgba(201, 182, 242, 0.14);
+  border-radius: 0.4rem;
+  padding: 1.6rem 1.25rem 1.25rem;
+  transform: rotate(var(--tilt, -1deg));
+  transition: transform 0.25s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  box-shadow: 0 10px 24px -14px rgba(0, 0, 0, 0.6);
+}
+
+.wish-card::before {
+  content: "";
+  position: absolute;
+  top: -0.4rem;
+  left: 50%;
+  translate: -50% 0;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--lilac);
+  box-shadow: 0 0 0 3px var(--twilight);
+}
+
+.wish-card:hover {
+  transform: rotate(var(--tilt, -1deg)) translateY(-3px);
+}
+
+.wish-text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  margin: 0 0 1rem;
+  color: var(--parchment);
+}
+
+.wish-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.wish-author {
+  color: var(--lilac);
+  font-weight: 500;
+}
+
+.wish-card.spotlight {
+  border-color: var(--ember);
+  box-shadow: 0 0 0 1px var(--ember), 0 0 32px 4px rgba(244, 183, 64, 0.35);
+  animation: pulse-glow 1.6s ease-in-out 2;
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 1px var(--ember), 0 0 20px 2px rgba(244, 183, 64, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 0 1px var(--ember), 0 0 40px 8px rgba(244, 183, 64, 0.5);
+  }
+}
+
+.empty-state {
+  color: var(--muted);
+  border: 1px dashed rgba(201, 182, 242, 0.25);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+@media (max-width: 34rem) {
+  .field-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .field-row .field {
+    max-width: none;
+  }
+
+  .topbar {
+    padding: 1rem 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .wish-card.spotlight {
+    animation: none;
+    box-shadow: 0 0 0 2px var(--ember);
+  }
+}
