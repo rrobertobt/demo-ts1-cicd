@@ -19,7 +19,7 @@ app.get("/api/wishes", async (req, res) => {
     res.json(result.rows);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Could not fetch wishes" });
+    res.status(500).json({ error: "Could not fetch all wishes" });
   }
 });
 
